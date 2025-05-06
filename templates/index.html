@@ -59,7 +59,7 @@
         <h1>ഇൽമോനെറ്റ് വിഷു തീം ഫോട്ടോ മത്സരം 2025</h1>
     </header>
     <div class="container">
-        <img src="poster.jpg" alt="Contest Poster" class="poster">
+        <img src="{{ url_for('static', filename='poster.jpg') }}" alt="Contest Poster" class="poster">
 
         <form method="POST">
             <input type="text" name="entry_no" maxlength="3" placeholder="3 അക്ക എൻട്രി നമ്പർ" required>
