@@ -2,21 +2,73 @@
 <html lang="ml">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ഇൽമോനെറ്റ് വിഷു തീം ഫോട്ടോ മത്സരം 2025</title>
     <style>
-        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
-        input, button { padding: 10px; font-size: 18px; }
-        .message { margin-top: 20px; font-size: 20px; color: green; }
+        body {
+            font-family: 'Noto Sans Malayalam', sans-serif;
+            text-align: center;
+            margin: 0;
+            background-color: #f8f8f8;
+            padding: 0;
+        }
+        header {
+            background-color: #004d40;
+            color: #fff;
+            padding: 15px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input, button {
+            padding: 12px;
+            font-size: 18px;
+            margin: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 300px;
+        }
+        button {
+            background-color: #388e3c;
+            color: white;
+            border: none;
+        }
+        button:hover {
+            background-color: #2e7d32;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #e65100;
+        }
+        .poster {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
-    <h1>ഇൽമോനെറ്റ് വിഷു തീം ഫോട്ടോ മത്സരം 2025</h1>
-    <form method="POST">
-        <input type="text" name="entry_no" maxlength="3" placeholder="3 അക്ക എൻട്രി നമ്പർ" required>
-        <button type="submit">പരിശോധിക്കുക</button>
-    </form>
-    {% if message %}
-        <div class="message">{{ message }}</div>
-    {% endif %}
+    <header>
+        <h1>ഇൽമോനെറ്റ് വിഷു തീം ഫോട്ടോ മത്സരം 2025</h1>
+    </header>
+    <div class="container">
+        <img src="/static/poster.jpg" alt="Contest Poster" class="poster">
+
+        <form method="POST">
+            <input type="text" name="entry_no" maxlength="3" placeholder="3 അക്ക എൻട്രി നമ്പർ" required>
+            <button type="submit">പരിശോധിക്കുക</button>
+        </form>
+
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
+    </div>
 </body>
 </html>
