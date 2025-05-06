@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <title>ഇൽമോനെറ്റ് വിഷു തീം ഫോട്ടോ മത്സരം 2025</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+        input, button { padding: 10px; font-size: 18px; }
+        .message { margin-top: 20px; font-size: 20px; color: green; }
+    </style>
+</head>
+<body>
+    <h1>ഇൽമോനെറ്റ് വിഷു തീം ഫോട്ടോ മത്സരം 2025</h1>
+    <form method="POST">
+        <input type="text" name="entry_no" maxlength="3" placeholder="3 അക്ക എൻട്രി നമ്പർ" required>
+        <button type="submit">പരിശോധിക്കുക</button>
+    </form>
+    {% if message %}
+        <div class="message">{{ message }}</div>
+    {% endif %}
+</body>
+</html>
