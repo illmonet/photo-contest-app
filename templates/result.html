@@ -22,9 +22,9 @@
         <h2>{{ name }}</h2>
         <p>Entry #{{ entry_no }}</p>
         <p>അഭിനന്ദനങ്ങൾ! നിങ്ങളുടെ എൻട്രി തിരഞ്ഞെടുത്തിരിക്കുന്നു! 🎉</p>
-        <audio autoplay>
-          <source src="{{ url_for('static', filename='success.mp3') }}" type="audio/mpeg">
-        </audio>
+        <audio autoplay loop>
+  <source src="{{ url_for('static', filename='success.mp3') }}" type="audio/mpeg">
+</audio>
         <div id="flower-effect"></div>
       </div>
     {% else %}
