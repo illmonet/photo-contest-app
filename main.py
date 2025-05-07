@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -25,16 +25,21 @@ entries = {
     "199": "Sreedevi Thalumkal"
 }
 
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        entry_no = request.form.get('entry')
+        entry_no = request.form.get('entry_no')
         name = entries.get(entry_no)
         if name:
-            return render_template('result.html', success=True, name=name, entry_no=entry_no)
+            return render_template('result.html',
+                                   success=True,
+                                   name=name,
+                                   entry_no=entry_no)
         else:
             return render_template('result.html', success=False)
     return render_template('index.html')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
