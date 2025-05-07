@@ -12,9 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     container.appendChild(flower);
 
-    setTimeout(() => {
-      flower.remove();
-    }, 5000);
+    setTimeout(() => flower.remove(), 5000);
   }
 
   setInterval(createFlower, 300);
