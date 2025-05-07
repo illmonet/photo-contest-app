@@ -1,48 +1,17 @@
 <!DOCTYPE html>
 <html lang="ml">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ഇൽമോനെറ്റ് വിഷു തീം ഫോട്ടോ മത്സരം 2025</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-  <div class="background"></div>
-  <h1 class="title">ഇൽമോനെറ്റ് വിഷു തീം ഫോട്ടോ മത്സരം 2025</h1>
-
-  {% if result is none %}
-    <div class="center-button">
-      <button onclick="showForm()">Show Result</button>
-    </div>
-  {% else %}
-    <div class="form-container fade-in">
-      {% if result == 'valid' %}
-        <div class="result success">
-          <h2>{{ name }}</h2>
-          <p>Entry #{{ entry_number }}</p>
-          <p>അഭിനന്ദനങ്ങൾ! നിങ്ങളുടെ എൻട്രി തിരഞ്ഞെടുത്തിരിക്കുന്നു! 🎉</p>
-          <audio autoplay>
-            <source src="{{ url_for('static', filename='success.mp3') }}" type="audio/mpeg">
-          </audio>
-          <div class="flowers"></div>
-        </div>
-      {% else %}
-        <div class="result error">
-          <p>ക്ഷമിക്കണം, നിങ്ങൾ വിജയിച്ചില്ല, തുടർന്നു വരുന്ന മത്സരങ്ങളിൽ പങ്കെടുക്കുമല്ലോ 😔</p>
-        </div>
-      {% endif %}
-    </div>
-  {% endif %}
-
-  {% if result is none %}
-    <div class="form-container hidden" id="entry-form">
-      <form method="POST">
-        <input type="text" name="entry" maxlength="3" placeholder="3 അക്ക എൻട്രി നമ്പർ" required />
-        <button type="submit">പരിശോധിക്കുക</button>
-      </form>
-    </div>
-  {% endif %}
-
-  <script src="{{ url_for('static', filename='effect.js') }}"></script>
+<body class="home">
+  <div class="overlay"></div>
+  <img src="{{ url_for('static', filename='poster.jpg') }}" alt="Contest Poster" class="bg-image">
+  <h1 class="main-title">ഇൽമോനെറ്റ് വിഷു തീം ഫോട്ടോ മത്സരം 2025</h1>
+  <form method="POST" class="center-form">
+    <button type="submit" class="show-button">Show Result</button>
+  </form>
 </body>
 </html>
