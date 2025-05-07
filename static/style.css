@@ -46,3 +46,21 @@ body {
   border-radius: 8px;
   cursor: pointer;
 }
+
+.petal {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: pink;
+  border-radius: 50%;
+  top: 0;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
