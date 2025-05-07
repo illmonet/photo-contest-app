@@ -1,38 +1,43 @@
 <!DOCTYPE html>
 <html lang="ml">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ഫലം - വിഷു മത്സരം 2025</title>
+  <title>ഫലം പരിശോധിക്കുക</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <script src="{{ url_for('static', filename='effect.js') }}"></script>
 </head>
-<body class="result">
-  <div class="overlay light"></div>
-  <img src="{{ url_for('static', filename='poster.jpg') }}" alt="Poster" class="bg-image">
 
-  <div class="center-form">
+<body class="result-page">
+  <img src="{{ url_for('static', filename='poster.jpg') }}" class="bg-image" alt="Background">
+  <div id="flower-effect"></div>
 
+  <div class="result-container">
     {% if success %}
-      <div class="result-box success">
-        <h2 class="big-text">{{ name }}</h2>
-        <h3 class="big-text">Entry #{{ entry_no }}</h3>
-        <p class="highlight">അഭിനന്ദനങ്ങൾ! നിങ്ങളുടെ എൻട്രി തിരഞ്ഞെടുത്തിരിക്കുന്നു! 🎉</p>
-
-       <audio autoplay loop>
-  <source src="{{ url_for('static', filename='success.mp3') }}" type="audio/mpeg">
-</audio>
-
-        <a href="{{ url_for('index') }}" class="back-button">വാപസാകുക</a>
-        <p class="screenshot-msg">ഈ പേജിന്റെ സ്ക്രീന്ഷോട് illmonet വാട്സാപ്പിൽ 2025 മെയ് 15 നു മുന്പായി അയച്ചുകൊടുക്കുക.</p>
-      </div>
+    <audio autoplay loop>
+      <source src="{{ url_for('static', filename='success.mp3') }}" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <div class="entry-info">
+      <h2>{{ name }} <br> Entry #{{ entry_no }}</h2>
+      <p class="success"> 🎉🎉🎉🎉🎉🎉🎉 <br> <br> അഭിനന്ദനങ്ങൾ! <br> നിങ്ങളുടെ എൻട്രി <br> തിരഞ്ഞെടുത്തിരിക്കുന്നു!
+        <br> <br>
+        🎉🎉🎉🎉🎉🎉🎉
+      </p>
+      <p class="screenshot-note">ഈ പേജിന്റെ സ്ക്രീന്ഷോട് illmonet വാട്സാപ്പിൽ അയച്ചുകൊടുക്കുക.<br> <br> Last Date : 2025
+        May 15
+      </p>
+      <button onclick="window.history.back()" class="back-button">Back</button>
+    </div>
     {% else %}
-      <form method="POST">
-        <input type="text" name="entry" placeholder="3 അക്ക എൻട്രി നമ്പർ" required pattern="\d{3}" class="input-large">
-        <button type="submit" class="submit-large">പരിശോധിക്കുക</button>
-      </form>
+    <form method="POST" class="input-form">
+      <input type="number" name="entry_no" placeholder="Entry No #" required class="input-box">
+      <button type="submit" class="submit-button">Show Result</button>
+    </form>
     {% endif %}
-
   </div>
+
+  <script src="{{ url_for('static', filename='effect.js') }}"></script>
 </body>
+
 </html>
