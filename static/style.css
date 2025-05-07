@@ -1,97 +1,48 @@
 body {
   margin: 0;
-  font-family: 'Noto Sans Malayalam', sans-serif;
+  padding: 0;
+  font-family: sans-serif;
   text-align: center;
-  background-color: #000;
   color: white;
-  overflow-x: hidden;
 }
 
-.background {
-  background: url("{{ url_for('static', filename='poster.jpg') }}") no-repeat center center fixed;
-  background-size: cover;
+.bg-image {
   position: fixed;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  z-index: -2;
   opacity: 0.25;
+}
+
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0.4;
   z-index: -1;
 }
 
-.title {
-  margin-top: 1rem;
-  font-size: 1.5rem;
-  color: #fdfd90;
+.overlay.light {
+  opacity: 0.2;
 }
 
-.center-button {
-  margin-top: 50vh;
-  transform: translateY(-50%);
+.center-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.center-button button {
-  font-size: 1.5rem;
+.show-button, button {
   padding: 1rem 2rem;
-  background: #ffcc00;
+  font-size: 1.2rem;
   border: none;
-  border-radius: 15px;
-  color: #000;
-  font-weight: bold;
+  background: gold;
+  color: black;
+  border-radius: 8px;
   cursor: pointer;
-}
-
-.form-container {
-  margin-top: 2rem;
-}
-
-.hidden {
-  display: none;
-}
-
-input[type="text"] {
-  padding: 0.7rem;
-  font-size: 1.2rem;
-  width: 80%;
-  max-width: 300px;
-  border-radius: 10px;
-  border: none;
-}
-
-button[type="submit"] {
-  margin-top: 1rem;
-  padding: 0.7rem 1.5rem;
-  font-size: 1.2rem;
-  border-radius: 10px;
-  border: none;
-  background-color: #28a745;
-  color: white;
-}
-
-.result.success {
-  color: #00ffae;
-  font-size: 1.2rem;
-  margin-top: 2rem;
-}
-
-.result.error {
-  color: #ff6666;
-  font-size: 1.2rem;
-  margin-top: 2rem;
-}
-
-.flowers {
-  animation: bloom 2s ease-in-out infinite;
-}
-
-@keyframes bloom {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-}
-
-.fade-in {
-  animation: fadeIn 1.2s ease-in;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
