@@ -12,26 +12,27 @@
   <img src="{{ url_for('static', filename='poster.jpg') }}" alt="Poster" class="bg-image">
 
   <div class="center-form">
-    <form method="POST">
-      <input type="text" name="entry" placeholder="3 അക്ക എൻട്രി നമ്പർ" required pattern="\d{3}">
-      <button type="submit">പരിശോധിക്കുക</button>
-    </form>
 
     {% if success %}
       <div class="result-box success">
-        <h2>{{ name }}</h2>
-        <p>Entry #{{ entry_no }}</p>
-        <p>അഭിനന്ദനങ്ങൾ! നിങ്ങളുടെ എൻട്രി തിരഞ്ഞെടുത്തിരിക്കുന്നു! 🎉</p>
-        <audio autoplay loop>
+        <h2 class="big-text">{{ name }}</h2>
+        <h3 class="big-text">Entry #{{ entry_no }}</h3>
+        <p class="highlight">അഭിനന്ദനങ്ങൾ! നിങ്ങളുടെ എൻട്രി തിരഞ്ഞെടുത്തിരിക്കുന്നു! 🎉</p>
+
+       <audio autoplay loop>
   <source src="{{ url_for('static', filename='success.mp3') }}" type="audio/mpeg">
 </audio>
-        <div id="flower-effect"></div>
+
+        <a href="{{ url_for('index') }}" class="back-button">വാപസാകുക</a>
+        <p class="screenshot-msg">ഈ പേജിന്റെ സ്ക്രീന്ഷോട് illmonet വാട്സാപ്പിൽ 2025 മെയ് 15 നു മുന്പായി അയച്ചുകൊടുക്കുക.</p>
       </div>
     {% else %}
-      <div class="result-box failure">
-        <p>ക്ഷമിക്കണം, നിങ്ങൾ വിജയിച്ചില്ല, തുടർന്നു വരുന്ന മത്സരങ്ങളിൽ പങ്കെടുക്കുമല്ലോ 😔</p>
-      </div>
+      <form method="POST">
+        <input type="text" name="entry" placeholder="3 അക്ക എൻട്രി നമ്പർ" required pattern="\d{3}" class="input-large">
+        <button type="submit" class="submit-large">പരിശോധിക്കുക</button>
+      </form>
     {% endif %}
+
   </div>
 </body>
 </html>
