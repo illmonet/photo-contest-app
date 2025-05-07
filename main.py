@@ -2,25 +2,43 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# Valid Entry Numbers
-valid_entries = {
-    106, 107, 109, 119, 120, 121, 123, 133, 134, 137,
-    144, 159, 165, 169, 176, 188, 194, 196, 197, 199
+# Entry database
+entries = {
+    "106": "Sandhyamol PK",
+    "107": "Keerthana Jobin",
+    "109": "Saranya Manoj",
+    "119": "Leenu Binoy",
+    "120": "Shalu Rajendraprasad",
+    "121": "Renju Shalu",
+    "123": "Ambly Jomon",
+    "133": "Krishnanand MR",
+    "134": "Linimol Igi",
+    "137": "Sathi Ravi",
+    "144": "Vineetha PS",
+    "159": "Leenu Akhil",
+    "165": "Sandrakrishna S",
+    "169": "Anugraha Manesh",
+    "176": "Ajeesh T V",
+    "188": "Arya Asish",
+    "194": "Sneha Lalraj",
+    "196": "Arya Suresh",
+    "197": "Akhila Vijayan",
+    "199": "Sreedevi Thalumkal"
 }
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route("/", methods=["GET", "POST"])
 def index():
-    message = ''
-    if request.method == 'POST':
-        try:
-            entry_no = int(request.form['entry_no'])
-            if entry_no in valid_entries:
-                message = "അഭിനന്ദനങ്ങൾ! നിങ്ങൾ വിജയിച്ചിരിക്കുന്നു! 🎉"
-            else:
-                message = "ക്ഷമിക്കണം, നിങ്ങൾ വിജയിച്ചില്ല. വീണ്ടും ശ്രമിക്കൂ."
-        except ValueError:
-            message = "ദയവായി ശരിയായ 3 അക്ക നമ്പർ നൽകൂ."
-    return render_template('index.html', message=message)
+    result = None
+    entry_number = ""
+    name = ""
+    if request.method == "POST":
+        entry_number = request.form.get("entry")
+        name = entries.get(entry_number)
+        if name:
+            result = "valid"
+        else:
+            result = "invalid"
+    return render_template("index.html", result=result, name=name, entry_number=entry_number)
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+if __name__ == "__main__":
+    app.run(debug=True)
